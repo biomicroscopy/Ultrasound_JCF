@@ -34,9 +34,9 @@ tic; JCF4 = computeJCF(ReconFull,p,4); toc
 
 %% Plotting
 cFactor = 0.25;
-g1 = computeContrastMatch(BMode,JCF1,cFactor);
-g2 = computeContrastMatch(BMode,JCF2,cFactor);
-g4 = computeContrastMatch(BMode,JCF4,cFactor);
+[~,g1] = computeContrastMatch(BMode,JCF1,cFactor);
+[~,g2] = computeContrastMatch(BMode,JCF2,cFactor);
+[~,g4] = computeContrastMatch(BMode,JCF4,cFactor);
 
 
 figure

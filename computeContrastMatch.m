@@ -1,4 +1,4 @@
-function [g] = computeContrastMatch(refIm,targIm,cFactor)
+function [targIm_adj,g] = computeContrastMatch(refIm,targIm,cFactor)
 
     img=abs(refIm).^cFactor;
     img(isinf(img)) = 0;
@@ -13,4 +13,6 @@ function [g] = computeContrastMatch(refIm,targIm,cFactor)
     F = @(x) [kB-var(imdat.^x,[],'all')/mean(imdat.^x,'all')^2];
     g=fsolve(F,g0);
 
+    targIm_adj = imdat.^g;
+    targIm_adj=targIm_adj/mean(targIm_adj,'all')*mB;
 end
